@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+datasource:
+  url: localhost:3306/test_boot
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${datasource.url}?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&autoReconnect=true&failOverReadOnly=false&maxReconnects=10&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    hikari:
+      maximum-pool-size: 10
+      max-lifetime: 1770000
+    druid:
+      validation-query: SELECT 1 FROM DUAL
+      initial-size: 10
+      min-idle: 10
+      max-active: 200
+      min-evictable-idle-time-millis: 300000
+      test-on-borrow: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 30000
+      pool-prepared-statements: true
+      max-open-prepared-statements: 100
